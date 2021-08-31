@@ -2,9 +2,9 @@ pipeline{
     agent any
 
     stages{
-        stage('SCM checkout'){
+        stage('SCM checkout){
             steps{
-             https://github.com/Jaypalsolanki123/JenkinsDemo
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/Jaypalsolanki123/JenkinsDemo'
             }
         }
     }
