@@ -1,21 +1,12 @@
 pipeline{
     agent any
-    tools {
-      maven 'maven3'
-    }
-    environment {
-      DOCKER_TAG = getVersion()
-    }
+
     stages{
-        stage('SCM'){
+        stage('SCM checkout){
             steps{
-                git credentialsId: 'github', 
-                    url: 'https://github.com/Jaypalsolanki123/JenkinsDemo'
+                git branch: 'main', credentialsId: '3a1e32b0-3814-47d0-a33e-3c6145b8f5a8', 
+                    url: 'https://github.com/Jaypalsolanki123/JenkinsDemo/edit/main'
             }
         }
-        
-        stage('Maven Build'){
-            steps{
-                sh "mvn clean package"
-            }
-        }
+    }
+}
